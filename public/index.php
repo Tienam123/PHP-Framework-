@@ -1,7 +1,8 @@
 <?php
 
-/*
- * Front-controller. This page is start page of the current framework
- */
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-echo "Hello World!";
+use Somecode\Framework\Http\Request;
+
+
+$request = Request::createFromGlobals();

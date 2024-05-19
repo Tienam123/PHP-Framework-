@@ -1,1 +1,4 @@
 /.osp
+
+/vendor/
+composer.lock
