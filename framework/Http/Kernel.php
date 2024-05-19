@@ -3,45 +3,35 @@
 namespace Somecode\Framework\Http;
 
 use FastRoute\RouteCollector;
+use mysql_xdevapi\Exception;
+use Somecode\Framework\Http\Exceptions\HttpException;
+use Somecode\Framework\Http\Exceptions\MethodNotAllowedException;
+use Somecode\Framework\Http\Exceptions\RouteNotFoundException;
+use Somecode\Framework\Routing\RouterInterface;
 
-use function FastRoute\simpleDispatcher;
 
 class Kernel
 {
-    public function __construct()
-    {
+
+
+    public function __construct(
+        private RouterInterface $router
+    ) {
+        $this->router = $this->router;
     }
 
     public function handle(Request $request): Responce
     {
-        $dispatcher = simpleDispatcher(function (RouteCollector $collector) {
-            $routes = include BASE_PATH.'/routes/web.php';
-
-            dd($routes);
-            $collector->get('/', function () {
-                $content = "<h1>Hello, to you!</h1>";
-                return new Responce($content);
-            });
-
-            $collector->get('/posts/{id}', function (array $vars) {
-                $content = "<h1>Post {$vars['id']}</h1>";
-
-                return new Responce($content);
-            });
-        });
-
-
-        $routeInfo = $dispatcher->dispatch(
-            $request->getMethod(),
-            $request->getPath()
-        );
-
-        [
-            $status,
-            $handler,
-            $vars,
-        ] = $routeInfo;
-
-        return $handler($vars);
+        try {
+            [
+                $routeHandler,
+                $vars,
+            ] = $this->router->dispatch($request);
+            $response = call_user_func_array($routeHandler, $vars);
+        }
+        catch (HttpException $e) {
+            $response = new Responce($e->getMessage(), $e->getStatusCode());
+        }
+        return $response;
     }
 }

@@ -9,10 +9,12 @@ class Responce
         private int $status = 200,
         private array $headers = [],
     ) {
+        http_response_code($this->status);
     }
 
     public function send()
     {
+
         echo $this->content;
     }
 }
