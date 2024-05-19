@@ -1,16 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Somecode\Framework\Http\Exceptions;
 
 class HttpException extends \Exception
 {
-    private int $statusCode=400;
+    private int $statusCode = 400;
 
-    public function setStatusCode(int $statusCode): HttpException {
+    public function setStatusCode(int $statusCode): HttpException
+    {
         $this->statusCode = $statusCode;
+
         return $this;
     }
-    public function getStatusCode(): int {
+
+    public function getStatusCode(): int
+    {
         return $this->statusCode;
     }
 }

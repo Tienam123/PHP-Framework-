@@ -15,6 +15,7 @@
     "somecode/php-framework": "dev-main"
   },
   "require-dev": {
+    "laravel/pint": "*",
     "symfony/var-dumper": "*"
   }
 }

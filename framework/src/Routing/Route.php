@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Somecode\Framework\Routing;
 
 class Route
@@ -12,6 +14,7 @@ class Route
             $handler,
         ];
     }
+
     public static function post(string $uri, array|callable $handler): array
     {
         return [
@@ -20,6 +23,7 @@ class Route
             $handler,
         ];
     }
+
     public static function path(string $uri, array|callable $handler): array
     {
         return [

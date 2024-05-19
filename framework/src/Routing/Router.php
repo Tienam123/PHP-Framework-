@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Somecode\Framework\Routing;
 
 use FastRoute\Dispatcher;
@@ -12,16 +14,14 @@ use function FastRoute\simpleDispatcher;
 
 class Router implements RouterInterface
 {
-
     public function dispatch(Request $request): array
     {
 
-        [$handler,$vars] = $this->extractRouteInfo($request);
-       if (is_array($handler)) {
-        [$controller,$method] = $handler;
-        $handler = [new $controller,$method];
-       }
-
+        [$handler, $vars] = $this->extractRouteInfo($request);
+        if (is_array($handler)) {
+            [$controller, $method] = $handler;
+            $handler = [new $controller(), $method];
+        }
 
         return [
             $handler,
@@ -32,7 +32,7 @@ class Router implements RouterInterface
     private function extractRouteInfo(Request $request): array
     {
         $dispatcher = simpleDispatcher(function (RouteCollector $collector) {
-            $routes = include BASE_PATH . '/routes/web.php';
+            $routes = include BASE_PATH.'/routes/web.php';
 
             foreach ($routes as $route) {
                 $collector->addRoute(...$route);
@@ -44,19 +44,18 @@ class Router implements RouterInterface
             $request->getPath()
         );
 
-
         switch ($routeInfo[0]) {
             case Dispatcher::FOUND:
-                return [$routeInfo[1],$routeInfo[2]];
+                return [$routeInfo[1], $routeInfo[2]];
             case Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = implode(', ', $routeInfo[1]);
                 $e = new MethodNotAllowedException("Supported HTTP methods are: $allowedMethods");
                 $e->setStatusCode(405);
                 throw $e;
             default:
-            $e = new RouteNotFoundException("Route not found");
-            $e->setStatusCode(404);
-            throw $e;
+                $e = new RouteNotFoundException('Route not found');
+                $e->setStatusCode(404);
+                throw $e;
         }
 
     }

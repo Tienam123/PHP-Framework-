@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 define('BASE_PATH', dirname(__DIR__));
 
-require_once BASE_PATH . '/vendor/autoload.php';
+require_once BASE_PATH.'/vendor/autoload.php';
 
 use Somecode\Framework\Http\Kernel;
 use Somecode\Framework\Http\Request;
 use Somecode\Framework\Routing\Router;
-
 
 $request = Request::createFromGlobals();
 
