@@ -1,0 +1,19 @@
+{
+    "name": "somecode/php-framework",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Somecode\\Framework\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Vladyslav Honchar",
+            "email": "dr.tienam123@gmail.com"
+        }
+    ],
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
+}

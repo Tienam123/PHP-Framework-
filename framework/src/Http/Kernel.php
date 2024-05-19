@@ -2,11 +2,7 @@
 
 namespace Somecode\Framework\Http;
 
-use FastRoute\RouteCollector;
-use mysql_xdevapi\Exception;
 use Somecode\Framework\Http\Exceptions\HttpException;
-use Somecode\Framework\Http\Exceptions\MethodNotAllowedException;
-use Somecode\Framework\Http\Exceptions\RouteNotFoundException;
 use Somecode\Framework\Routing\RouterInterface;
 
 

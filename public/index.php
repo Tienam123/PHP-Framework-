@@ -6,7 +6,6 @@ require_once BASE_PATH . '/vendor/autoload.php';
 
 use Somecode\Framework\Http\Kernel;
 use Somecode\Framework\Http\Request;
-use Somecode\Framework\Http\Responce;
 use Somecode\Framework\Routing\Router;
 
 
