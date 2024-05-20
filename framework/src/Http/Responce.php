@@ -7,7 +7,7 @@ namespace Somecode\Framework\Http;
 class Responce
 {
     public function __construct(
-        private mixed $content,
+        private string $content = '',
         private int $status = 200,
         private array $headers = [],
     ) {
@@ -18,5 +18,10 @@ class Responce
     {
 
         echo $this->content;
+    }
+
+    public function setContent(string $content): void
+    {
+        $this->content = $content;
     }
 }

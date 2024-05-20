@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/framework/src" isTestSource="false" packagePrefix="Somecode\Framework\" />
       <sourceFolder url="file://$MODULE_DIR$/framework/tests" isTestSource="true" packagePrefix="Somecode\Framework\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/framework/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/framework/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/fast-route" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />
@@ -48,8 +49,16 @@
       <excludeFolder url="file://$MODULE_DIR$/framework/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/framework/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/framework/vendor/league/container" />
+      <excludeFolder url="file://$MODULE_DIR$/framework/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/framework/vendor/symfony/dotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/framework/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/framework/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/framework/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
